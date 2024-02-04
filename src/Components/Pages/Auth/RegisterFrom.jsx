@@ -212,7 +212,7 @@ const RegisterFrom = ({ logoClassMain }) => {
                 Already have an account?
                 <Link
                   className="ms-2"
-                  to={`${process.env.PUBLIC_URL}/login`}
+                  to={`/login`}
                 >
                   Sign in
                 </Link>
