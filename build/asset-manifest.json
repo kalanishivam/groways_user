@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "https://user.groways.io/static/css/main.be77f1f4.css",
-    "main.js": "https://user.groways.io/static/js/main.7f03b1d4.js",
+    "main.js": "https://user.groways.io/static/js/main.fcf74291.js",
     "static/js/458.d9a40240.chunk.js": "https://user.groways.io/static/js/458.d9a40240.chunk.js",
     "static/js/858.7daafff3.chunk.js": "https://user.groways.io/static/js/858.7daafff3.chunk.js",
     "static/js/498.ab568cb3.chunk.js": "https://user.groways.io/static/js/498.ab568cb3.chunk.js",
     "static/js/703.50daf76b.chunk.js": "https://user.groways.io/static/js/703.50daf76b.chunk.js",
     "static/js/198.3360b6dc.chunk.js": "https://user.groways.io/static/js/198.3360b6dc.chunk.js",
-    "static/js/968.cec35e59.chunk.js": "https://user.groways.io/static/js/968.cec35e59.chunk.js",
+    "static/js/968.6fd1a858.chunk.js": "https://user.groways.io/static/js/968.6fd1a858.chunk.js",
     "static/js/439.46ad21de.chunk.js": "https://user.groways.io/static/js/439.46ad21de.chunk.js",
     "static/js/496.7e3b653b.chunk.js": "https://user.groways.io/static/js/496.7e3b653b.chunk.js",
     "static/js/774.6272546c.chunk.js": "https://user.groways.io/static/js/774.6272546c.chunk.js",
     "static/js/561.a28cc1a9.chunk.js": "https://user.groways.io/static/js/561.a28cc1a9.chunk.js",
-    "static/js/419.76a7d9e1.chunk.js": "https://user.groways.io/static/js/419.76a7d9e1.chunk.js",
+    "static/js/419.e3481c63.chunk.js": "https://user.groways.io/static/js/419.e3481c63.chunk.js",
     "static/media/2.svg": "https://user.groways.io/static/media/2.ab5388284836cc68cf9b.svg",
     "static/media/icofont.svg?v=1.0.0-beta": "https://user.groways.io/static/media/icofont.9999a483fca7c18fdec0.svg",
     "static/media/3.jpg": "https://user.groways.io/static/media/3.f85aeff7a586236baff2.jpg",
@@ -440,20 +440,20 @@
     "static/media/hour.svg": "https://user.groways.io/static/media/hour.6548bc0623d611d7572e.svg",
     "static/media/min.svg": "https://user.groways.io/static/media/min.adcdc23489f6d03ca8b6.svg",
     "main.be77f1f4.css.map": "https://user.groways.io/static/css/main.be77f1f4.css.map",
-    "main.7f03b1d4.js.map": "https://user.groways.io/static/js/main.7f03b1d4.js.map",
+    "main.fcf74291.js.map": "https://user.groways.io/static/js/main.fcf74291.js.map",
     "458.d9a40240.chunk.js.map": "https://user.groways.io/static/js/458.d9a40240.chunk.js.map",
     "858.7daafff3.chunk.js.map": "https://user.groways.io/static/js/858.7daafff3.chunk.js.map",
     "498.ab568cb3.chunk.js.map": "https://user.groways.io/static/js/498.ab568cb3.chunk.js.map",
     "703.50daf76b.chunk.js.map": "https://user.groways.io/static/js/703.50daf76b.chunk.js.map",
     "198.3360b6dc.chunk.js.map": "https://user.groways.io/static/js/198.3360b6dc.chunk.js.map",
-    "968.cec35e59.chunk.js.map": "https://user.groways.io/static/js/968.cec35e59.chunk.js.map",
+    "968.6fd1a858.chunk.js.map": "https://user.groways.io/static/js/968.6fd1a858.chunk.js.map",
     "496.7e3b653b.chunk.js.map": "https://user.groways.io/static/js/496.7e3b653b.chunk.js.map",
     "774.6272546c.chunk.js.map": "https://user.groways.io/static/js/774.6272546c.chunk.js.map",
     "561.a28cc1a9.chunk.js.map": "https://user.groways.io/static/js/561.a28cc1a9.chunk.js.map",
-    "419.76a7d9e1.chunk.js.map": "https://user.groways.io/static/js/419.76a7d9e1.chunk.js.map"
+    "419.e3481c63.chunk.js.map": "https://user.groways.io/static/js/419.e3481c63.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.be77f1f4.css",
-    "static/js/main.7f03b1d4.js"
+    "static/js/main.fcf74291.js"
   ]
 }
