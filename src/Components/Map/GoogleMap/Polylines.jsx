@@ -21,10 +21,10 @@ const PolylinesMapComp = () => {
     { lat: -27.467, lng: 153.027 },
   ];
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
-  });
+  // const { isLoaded } = useJsApiLoader({
+  //   id: "google-map-script",
+  //   googleMapsApiKey: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
+  // });
 
   return (
     <Fragment>
@@ -34,13 +34,13 @@ const PolylinesMapComp = () => {
           <CardBody>
             <div className="map-js-height">
               <div id="gmap-simple" className="map-block">
-                {isLoaded ? (
+                {/* {isLoaded ? (
                   <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                     <Polyline paths={polylinetriangleCoords} geodesic={true} strokeColor="#FF0000" strokeOpacity={1.0} strokeWeight={2} />
                   </GoogleMap>
                 ) : (
                   "LOADING...."
-                )}
+                )} */}
               </div>
             </div>
           </CardBody>

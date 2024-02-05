@@ -26,10 +26,10 @@ const MarkerMapComp = (props) => {
     },
   });
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
-  });
+  // const { isLoaded } = useJsApiLoader({
+  //   id: "google-map-script",
+  //   googleMapsApiKey: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
+  // });
 
   const showinfowindow = () => {
     setlocation({ ...location, address: true });
@@ -43,7 +43,7 @@ const MarkerMapComp = (props) => {
           <CardBody>
             <div className="map-js-height">
               <div id="gmap-simple" className="map-block">
-                {isLoaded ? (
+                {/* {isLoaded ? (
                   <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                     <Marker google={props?.google} name={"Dolores park"} draggable={true} onClick={showinfowindow} position={{ lat: location?.markerPosition.lat, lng: location?.markerPosition.lng }} />
                     <Marker />
@@ -60,7 +60,7 @@ const MarkerMapComp = (props) => {
                   </GoogleMap>
                 ) : (
                   "Loading..."
-                )}
+                )} */}
               </div>
             </div>
           </CardBody>

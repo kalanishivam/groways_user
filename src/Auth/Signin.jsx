@@ -196,7 +196,7 @@ const Signin = ({ selected }) => {
         let invested = await invest({args:[response?.data?.refferAddress,response?.data?.uplineAddress,amountInWei,halfWei,adminIncomeWei]});
         await sleep(5000);
         setLoading(false);
-        response = await updateData({address,referBy:walletAddress,transactionHash:invested.hash,uplineAddresses:response?.data?.uplineAddress,amount:11,levelDistribution:amounts})        
+        response = await updateData({address,referBy:walletAddress,transactionHash:invested?.hash,uplineAddresses:response?.data?.uplineAddress,amount:11,levelDistribution:amounts})        
         getUserData(address);
         localStorage.setItem("login", JSON.stringify(true));
         history(`/dashboard/default/${layoutURL}`);
@@ -218,10 +218,10 @@ const Signin = ({ selected }) => {
           icon:"error",
           text:err?.response?.data?.error
         })
-      }else if(err.message){
+      }else if(err?.message){
         Swal.fire({
           icon:"error",
-          text:err.message
+          text:err?.message
         })
       }        
     }
