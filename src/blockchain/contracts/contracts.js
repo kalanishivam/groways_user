@@ -1,2 +1,2 @@
-export const testContractAddress = "0x11f2EC7e63dE602B0b3381e5c81761778E1265Ec";
-export const testBUSDcontractAddress = "0x2be1aff54a32371c9af351d9637b710aa81b33fc";
+export const testContractAddress = "0x5c32f02E792fF15F32b569487bBb09Ea1f16452B";
+export const testBUSDcontractAddress = "0xeB31705512137a0F90010AF1131A562998B1d190";

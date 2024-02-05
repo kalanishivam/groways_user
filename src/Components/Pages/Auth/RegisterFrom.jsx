@@ -24,7 +24,7 @@ const RegisterFrom = ({ logoClassMain }) => {
           <div>
             <Link
               className={`logo ${logoClassMain ? logoClassMain : ""}`}
-              to={process.env.PUBLIC_URL}
+              to={process.env.REACT_APP_PUBLIC_URL}
             >
               <Image
                 attrImage={{

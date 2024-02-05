@@ -11,7 +11,7 @@ import { IoEyeSharp } from "react-icons/io5";
 import IntegrationNotistack from "./CopySuccsessful";
 import { CiShare1 } from "react-icons/ci";
 import { FaWallet } from "react-icons/fa6";
-import { fetchAllActivities } from "../../../api/integrateConfig";
+import { fetchAllActivities, fetchAllIncomeInfo, fetchLatestAnnouncement } from "../../../api/integrateConfig";
 import {useAccount} from 'wagmi';
 import MyContext from "../../../Context/MyContext";
 import { useContext } from "react";
@@ -22,6 +22,13 @@ import { useContext } from "react";
 
 
 const Dashboard = () => {
+  const [refferalIncome , setRefferalIncome] = useState();
+  const [levelIncome , setLevelIncome] = useState();
+  const [slotIncome , setSlotIncome] = useState();
+  const [totalIncome , setTotalIncome] = useState();
+  const [totalUsers, setTotalUsers] = useState();
+  const [packageIncome , setPackageIncome] = useState();
+  const [totalTeam , setTotalTeam] = useState();
   const {address} = useAccount();
   const {userData} = useContext(MyContext);
   const [platformData , setPlatformData] = useState([])
@@ -30,7 +37,8 @@ const Dashboard = () => {
 
   const [isSeeMoreVisible, setIsSeeMoreVisible] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
-console.log(userData);
+console.log(userData);  const [announcement , setAnnouncement] = useState('')
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
@@ -70,147 +78,143 @@ console.log(userData);
     window.getSelection().removeAllRanges();
   };
 
-  const platformdata1 = [
-    {
-      usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
-      newuser: 'New User Joinabcd',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'NewUser'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
-      newuser: 'New User Join',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'NewUser'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
-      newuser: 'New User Join',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'NewUser'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
-      newuser: 'New User Join',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'NewUser'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
-      newuser: 'New User Join',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'NewUser'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
-      newuser: 'New User Join',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'NewUser'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
-    {
-      usericon: (<FaWallet style={{ color: 'green' }} />),
-      newuser: '+5 BUSD in x4',
-      UserId: '869255',
-      jioningtiming: '7 minutes',
-      className: 'transaction'
-    },
+  // const platformdata1 = [
+  //   {
+  //     usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
+  //     newuser: 'New User Joinabcd',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'NewUser'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
+  //     newuser: 'New User Join',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'NewUser'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
+  //     newuser: 'New User Join',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'NewUser'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
+  //     newuser: 'New User Join',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'NewUser'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
+  //     newuser: 'New User Join',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'NewUser'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<PersonAddAltRoundedIcon sx={{ fontSize: "15px" }} />),
+  //     newuser: 'New User Join',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'NewUser'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
+  //   {
+  //     usericon: (<FaWallet style={{ color: 'green' }} />),
+  //     newuser: '+5 BUSD in x4',
+  //     UserId: '869255',
+  //     jioningtiming: '7 minutes',
+  //     className: 'transaction'
+  //   },
 
 
-  ]
+  // ]
 
   const showMoreItems = () => {
     setVisibleItems(visibleItems + 15); // Increase the number of visible items
   };
 
   const boxdata3 = [
-    { name: 'x3/x4', link: ' 0x5ac...B97' },
-    { name: 'x3/x4', link: ' 0x5ac...B97' },
-    { name: 'x3/x4', link: ' 0x5ac...B97' },
-    { name: 'x3/x4', link: ' 0x5ac...B97' },
-    { name: 'x3/x4', link: ' 0x5ac...B97' }
+    { name: 'x3/x4', link:  '0x017.....15597' }
   ]
 
 
@@ -226,7 +230,43 @@ console.log(userData);
         console.log(`error in fetching list of activities in useEffect : ${error.message}`)
       }
     }
+    // fetchListOfActivities();
+
+    const fetchAllIncome = async()=>{
+      // const address = localStorage.getItem("address");
+      let data = {
+        address : address
+      }
+      try{
+      const response = await fetchAllIncomeInfo(data);
+      setTotalIncome(response.data.totalIncome);
+      // setTotalProfit(response.data.totalProfit)
+      setTotalTeam(response.data.totalTeam);
+      setRefferalIncome(response.data.refferalIncome);
+      setPackageIncome(response.data.packageIncome);
+      setSlotIncome(response.data.slotIncome);
+      setLevelIncome(response.data.levelIncome);
+      setTotalTeam(response.data.totalTeam);
+      setTotalUsers(response.data.totalMembers);
+      }catch(error){
+        console.log(`error in fetching all data : ${error.message}`);
+      }
+    
+    }
+
+    const fetchAnnouncement = async()=>{
+      try{
+        const response = await fetchLatestAnnouncement();
+        setAnnouncement(response.statement);
+
+      }catch(error){
+        console.log(`error in fetch announcement : ${error.message}`);
+      }
+    }
+
     fetchListOfActivities();
+    fetchAllIncome();
+    fetchAnnouncement();
 
   }, [])
 
@@ -366,7 +406,7 @@ console.log(process.env)
 
                 <div className="first-container-box-left">
                   <b>Team</b>
-                  <h5>27</h5>
+                  <h5>{totalTeam}</h5>
                   <div className="icon-redius" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div className="zero-number"> 0</div>
                     <div className="reload-icon"> <img src="/images/activity_white.webp" alt="" /></div>
@@ -374,7 +414,7 @@ console.log(process.env)
                 </div>
                 <div className="first-container-box-left">
                   <b>Total Referral</b>
-                  <h5>27</h5>
+                  <h5>2</h5>
                   <div className="icon-redius" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div className="zero-number"> 0</div>
                     <div className="reload-icon"> <img src="/images/activity_white.webp" alt="" /></div>
@@ -393,7 +433,7 @@ console.log(process.env)
                
                 <div className="first-container-box-left">
                   <b>Total Profit</b>
-                  <h5>27</h5>
+                  <h5>{totalIncome}</h5>
                   <div className="icon-redius" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div className="zero-number"> 0</div>
                     <div className="reload-icon"> <img src="/images/activity_white.webp" alt="" /></div>
@@ -401,7 +441,7 @@ console.log(process.env)
                 </div>
                 <div className="first-container-box-left">
                   <b>Today Profit</b>
-                  <h5>27</h5>
+                  <h5>{totalIncome}</h5>
                   <div className="icon-redius" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div className="zero-number"> 0</div>
                     <div className="reload-icon"> <img src="/images/activity_white.webp" alt="" /></div>
@@ -418,7 +458,7 @@ console.log(process.env)
                 </div>
                 <div style={{ width: '80%', paddingLeft: '15px' }}>
                   <marquee className="hurryup" behavior="smooth" direction="left" >
-                    User New For OFF 50% !Up Hurry.
+                    {announcement} 
                     {/* Hurry up! 50% OFF For New User */}
                   </marquee>
                 </div>
@@ -433,7 +473,7 @@ console.log(process.env)
                   <div className="dashboard-container-box dashboard-boxes"  >
                     <div>
                       <div> <span style={{ fontSize: '34px', fontWeight: '500' }}>
-                        0
+                        {refferalIncome}
                       </span>
                       </div>
                       <div> <span>
@@ -445,7 +485,7 @@ console.log(process.env)
                   <div className="dashboard-container-box dashboard-boxes" >
                     <div>
                       <div> <span style={{ fontSize: '34px', fontWeight: '500' }}>
-                        0
+                        {levelIncome}
                       </span>
                       </div>
                       <div> <span>
@@ -458,7 +498,7 @@ console.log(process.env)
                   <div className="dashboard-container-box dashboard-boxes" >
                     <div>
                       <div> <span style={{ fontSize: '34px', fontWeight: '500' }}>
-                        0
+                        {packageIncome}
                       </span>
                       </div>
                       <div> <span>
@@ -470,7 +510,7 @@ console.log(process.env)
                   <div className="dashboard-container-box dashboard-boxes" >
                     <div>
                       <div> <span style={{ fontSize: '34px', fontWeight: '500' }}>
-                        0
+                        {slotIncome}
                       </span>
                       </div>
                       <div> <span>
@@ -483,7 +523,7 @@ console.log(process.env)
                   <div className="dashboard-container-box dashboard-boxes" >
                     <div>
                       <div> <span style={{ fontSize: '34px', fontWeight: '500' }}>
-                        0
+                        {totalIncome}
                       </span>
                       </div>
                       <div> <span>
@@ -515,7 +555,7 @@ console.log(process.env)
                       <div>
                         <div>
                           <span className="package-header">
-                            10 BUSD
+                            10 USDT
                           </span>
                         </div>
                         <div>
@@ -607,7 +647,7 @@ console.log(process.env)
                       <div>
                         <div>
                           <span className="package-header">
-                            10 BUSD
+                            10 USDT
                           </span>
                         </div>
                         <div>
@@ -703,7 +743,7 @@ console.log(process.env)
 
                       <div className="table-right-div">
                         <span>
-                          <CiShare1 size={'18px'} style={{ fontWeight: '800' }} />
+                          <CiShare1 size={'18px'} style={{ fontWeight: '800', cursor : 'pointer' }} onClick={() => window.open(`https://testnet.bscscan.com/tx/${data.transactionHash}`, '_blank')} />
                         </span>
                         <span>{formatTimeDifference(data.createdAt)}</span>
                       </div>
@@ -752,56 +792,56 @@ console.log(process.env)
 
               <div className="platform-right-container">
                 <div className="platform-right-box-1" >
-                  <div>
+                  {/* <div>
                     <span className="right-box-1-heading">
                       Members total
                     </span>
-                  </div>
+                  </div> */}
 
-                  <div>
+                  {/* <div>
                     <div style={{ color: 'white', fontSize: '23px', fontWeight: '700' }}>
                       <span>1452 555</span>
                     </div>
                     <div style={{ color: 'lightgreen', fontSize: '17px' }}>
                       <span><NorthIcon sx={{ fontSize: '16px' }} />554</span>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="platform-right-box-2">
-                  <div>
+                  {/* <div>
                     <span className="right-box-1-heading">
                       Members received
                     </span>
-                  </div>
+                  </div> */}
 
-                  <div style={{ borderBottom: '1px solid #363737', paddingBottom: '5px' }}>
+                  {/* <div style={{ borderBottom: '1px solid #363737', paddingBottom: '5px' }}>
                     <div style={{ color: 'white', fontSize: '23px', fontWeight: '700' }}>
                       <span> 1452 555</span>
                     </div>
                     <div style={{ color: 'lightgreen', fontSize: '17px' }}>
                       <span>
-                        {/* <NorthIcon sx={{ fontSize: '16px' }} /> */}
+                       
                         + 554</span>
                     </div>
-                  </div>
+                  </div> */}
 
-                  <div>
+                  {/* <div>
                     <div style={{ color: 'white', fontSize: '23px', fontWeight: '700' }}>
                       <span>1452 555</span>
                     </div>
                     <div style={{ color: 'lightgreen', fontSize: '17px' }}>
                       <span>
-                        {/* <NorthIcon sx={{ fontSize: '16px' }} /> */}
+                        
                         + 554</span>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="platform-right-box-3">
                   <div>
                     <span className="right-box-3-heading-main">
-                      Forsage BUSD Contracts
+                      Groways USDT Contracts
                     </span>
                   </div>
                   {boxdata3.map((data1, index) => {
@@ -824,7 +864,7 @@ console.log(process.env)
                     )
                   })}
 
-                  <div>
+                  {/* <div>
                     <span className="right-box-1-heading">
                       Transactions made
                     </span>
@@ -836,14 +876,14 @@ console.log(process.env)
                     </div>
                     <div style={{ color: 'lightgreen', fontSize: '17px' }}>
                       <span>
-                        {/* <NorthIcon sx={{ fontSize: '16px' }} /> */}
+                       
                         + 554</span>
                     </div>
-                  </div>
+                  </div> */}
 
-                  <div>
+                  {/* <div>
                     <span className="right-box-1-heading">
-                      Turnover, BUSD
+                      Turnover, USDT
                     </span>
                   </div>
 
@@ -853,10 +893,10 @@ console.log(process.env)
                     </div>
                     <div style={{ color: 'lightgreen', fontSize: '17px' }}>
                       <span>
-                        {/* <NorthIcon sx={{ fontSize: '16px' }} /> */}
+                        
                         + 554</span>
                     </div>
-                  </div>
+                  </div> */}
 
                 </div>
 

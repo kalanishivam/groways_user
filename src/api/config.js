@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const axiosBase = axios.create({
-    baseURL : "https://backend.groways.io/"
+    baseURL : `${process.env.REACT_APP_API_URL}`
 })
