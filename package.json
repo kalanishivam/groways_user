@@ -2,7 +2,7 @@
   "name": "cuba-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://user.groways.io/",
+  "homepage": "https://user.groways.io/",
   "dependencies": {
     "@auth0/auth0-react": "^2.0.1",
     "@emotion/react": "^11.11.3",
