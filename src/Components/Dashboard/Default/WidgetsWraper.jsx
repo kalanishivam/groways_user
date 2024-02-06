@@ -17,7 +17,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 20,
-      total: '$20',
+      total: ( <span style={{color : "black"}}>$20</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -29,7 +29,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 30,
-      total: '$30',
+      total: ( <span style={{color : "black"}}>$30</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -41,7 +41,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 80,
-      total: '$80',
+      total: ( <span style={{color : "black"}}>$80</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -53,7 +53,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 160,
-      total: '$160',
+      total: ( <span style={{color : "black"}}>$160</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -65,7 +65,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 320,
-      total: '$320',
+      total: ( <span style={{color : "black"}}>$320</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -77,7 +77,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 640,
-      total: '$640',
+      total: ( <span style={{color : "black"}}>$640</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -89,7 +89,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 1280,
-      total: '$1280',
+      total: ( <span style={{color : "black"}}>$1280</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -101,7 +101,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 2560,
-      total: '$2560',
+      total: ( <span style={{color : "black"}}>$2560</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -113,7 +113,7 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 5120,
-      total: '$5120',
+      total: ( <span style={{color : "black"}}>$5120</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
@@ -125,17 +125,21 @@ const WidgetsWrapper = () => {
         Active
       </button>),
       gros: 10240,
-      total: '$10240',
+      // total: '$10240',
+      total : ( <span style={{color : "black"}}>$10240</span>),
       color: 'success',
       // icon: 'return-box',
       icon: 'cart'      
     }               
   ])
+  // total: (
+  //   <span style={{ color: 'black' }}>$20</span>
+  // ),
   const handleClick = async (total)=>{
     console.log("this is the function where you have to get buy package")
     console.log(`the total is : ${total}`)
     // const {userId , address, transactionHash, packageType } = req.body;
-    const num = parseInt(total.replace('$' , ''), 10);
+    const num = parseInt(total?.replace('$' , ''), 10);
     const transactionHash = "0x6df737816d9d21d8ca8a54139af66fb08d45fe9d235e1c779d2b60c5d8035869"; 
     let data = {
       userId : localStorage.getItem("userID"),   //  in order to get user id from this, user must first go to edit profile section because this is where user ID is set to localsotrage otherwise it might throw error

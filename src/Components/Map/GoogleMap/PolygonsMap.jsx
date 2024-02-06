@@ -21,10 +21,10 @@ const PolygonsComp = () => {
     { lat: 25.774, lng: -80.19 },
   ];
 
-  // const { isLoaded } = useJsApiLoader({
-  //   id: "google-map-script",
-  //   googleMapsApiKey: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
-  // });
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
+  });
 
   return (
     <Fragment>
@@ -34,13 +34,13 @@ const PolygonsComp = () => {
           <CardBody>
             <div className="map-js-height">
               <div id="gmap-simple" className="map-block">
-                {/* {isLoaded ? (
+                {isLoaded ? (
                   <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                     <Polygon paths={polygontriangleCoords} strokeColor="#FF0000" strokeOpacity={0.8} strokeWeight={2} fillColor="#FF0000" fillOpacity={0.35} />
                   </GoogleMap>
                 ) : (
                   "LOADING...."
-                )} */}
+                )}
               </div>
             </div>
           </CardBody>

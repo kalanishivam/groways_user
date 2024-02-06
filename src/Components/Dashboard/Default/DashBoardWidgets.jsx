@@ -33,7 +33,7 @@ const SlotActivation = () => {
     
 
     const handleCLick = async (total)=>{
-        const num = parseInt(total.replace('$' , ''), 10);
+        const num = parseInt(total?.replace('$' , ''), 10);
         // console.log(`handle click si clicked and the amount:s${num}s`)
 
         let data = {

@@ -555,7 +555,7 @@ console.log(process.env)
                       <div>
                         <div>
                           <span className="package-header">
-                            10 USDT
+                            10 BUSD
                           </span>
                         </div>
                         <div>
@@ -647,7 +647,7 @@ console.log(process.env)
                       <div>
                         <div>
                           <span className="package-header">
-                            10 USDT
+                            10 BUSD
                           </span>
                         </div>
                         <div>
@@ -841,7 +841,7 @@ console.log(process.env)
                 <div className="platform-right-box-3">
                   <div>
                     <span className="right-box-3-heading-main">
-                      Groways USDT Contracts
+                      Groways BUSD Contracts
                     </span>
                   </div>
                   {boxdata3.map((data1, index) => {
@@ -883,7 +883,7 @@ console.log(process.env)
 
                   {/* <div>
                     <span className="right-box-1-heading">
-                      Turnover, USDT
+                      Turnover, BUSD
                     </span>
                   </div>
 

@@ -20,7 +20,7 @@ const SidebarLogo = () => {
       {layout1 !== 'compact-wrapper dark-sidebar' && layout1 !== 'compact-wrapper color-sidebar' && mixLayout ? (
         <Link to={`/dashboard/default/${layoutURL}`}>
           <div style={{display : "flex" , alignItems : "center"}}>
-          {/* <Image attrImage={{ className: 'img-fluid d-inline', src: logo, alt: '' , style : {height : "90px" , width : "80px"}}} /> */}
+          <Image attrImage={{ className: 'img-fluid d-inline', src: logo, alt: '' , style : {height : "90px" , width : "80px"}}} />
             <p style={{fontSize : "20px" , marginTop : "20px"}}>Groways</p>
             </div>
         </Link>
