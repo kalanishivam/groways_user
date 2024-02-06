@@ -1,6 +1,6 @@
 import React from "react";
 import { Suspense, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, HashRouter } from "react-router-dom";
 import Loader from "../Layout/Loader";
 import { authRoutes } from "./AuthRoutes";
 import LayoutRoutes from "../Route/LayoutRoutes";
@@ -28,7 +28,7 @@ const Routers = () => {
   }, []);
 
   return (
-    <BrowserRouter basename={"/"}>
+    <HashRouter basename={"/"}>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path={"/"} element={<PrivateRoute />}>
@@ -49,7 +49,7 @@ const Routers = () => {
           ))}
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
