@@ -11,7 +11,7 @@ export class ConfigDB {
     color: {
       primary_color: localStorage.getItem('default_color') || '#7366ff',
       secondary_color: localStorage.getItem('secondary_color') || '#f73164',
-      mix_background_layout: 'dark-only',
+      mix_background_layout: 'light-only',
     },
     router_animation: 'fadeIn',
   };

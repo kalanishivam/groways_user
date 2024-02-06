@@ -139,7 +139,7 @@ const WidgetsWrapper = () => {
     console.log("this is the function where you have to get buy package")
     console.log(`the total is : ${total}`)
     // const {userId , address, transactionHash, packageType } = req.body;
-    const num = parseInt(total?.replace('$' , ''), 10);
+    const num = parseInt(total.replace('$' , ''), 10);
     const transactionHash = "0x6df737816d9d21d8ca8a54139af66fb08d45fe9d235e1c779d2b60c5d8035869"; 
     let data = {
       userId : localStorage.getItem("userID"),   //  in order to get user id from this, user must first go to edit profile section because this is where user ID is set to localsotrage otherwise it might throw error
