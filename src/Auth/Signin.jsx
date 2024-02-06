@@ -59,9 +59,9 @@ const Signin = ({ selected }) => {
       }
       let response = await checkAddressExists(account_address);
       console.log(response);
-      if(response.data){
+      if(response?.data){
         getUserData(account_address)
-        if(response.data.isActive){          
+        if(response?.data?.isActive){          
           localStorage.setItem("login", JSON.stringify(true));
           history(`/dashboard/default/${layoutURL}`);
         }else{
@@ -162,7 +162,7 @@ const Signin = ({ selected }) => {
       }
       let response = await createAccount(data);
       
-      if(response.data){     
+      if(response?.data){     
       setLoading(true)   
         let decimals = await readContract({
           abi:BUSDABI,
@@ -173,7 +173,7 @@ const Signin = ({ selected }) => {
         let amount = 11 * ((10) ** Number(decimals));
         let half = Number(11 / 2);
         let amounts = Array();
-        for(let i=0;i<response.data.uplineAddress.length;i++){
+        for(let i=0;i<response?.data?.uplineAddress.length;i++){
           let levelDivide = Number(Number(half) / 11);
           amounts.push(levelDivide);
         }
@@ -193,10 +193,10 @@ const Signin = ({ selected }) => {
         let halfWei = (Number(half) * (10 ** 18)).toString();
         console.log(halfWei, " halfWei");
         console.log(adminIncomeWei,"adminIncomeWei");
-        let invested = await invest({args:[response.data.refferAddress,response.data.uplineAddress,amountInWei,halfWei,adminIncomeWei]});
+        let invested = await invest({args:[response?.data?.refferAddress,response?.data?.uplineAddress,amountInWei,halfWei,adminIncomeWei]});
         await sleep(5000);
         setLoading(false);
-        response = await updateData({address,referBy:walletAddress,transactionHash:invested.hash,uplineAddresses:response.data.uplineAddress,amount:11,levelDistribution:amounts,adminIncome:adminIncomeWei/10**18})        
+        response = await updateData({address,referBy:walletAddress,transactionHash:invested.hash,uplineAddresses:response?.data.uplineAddress,amount:11,levelDistribution:amounts,adminIncome:adminIncomeWei/10**18})        
         getUserData(address);
         localStorage.setItem("login", JSON.stringify(true));
         history(`/dashboard/default/${layoutURL}`);
