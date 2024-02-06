@@ -28,7 +28,7 @@ const Routers = () => {
   }, []);
 
   return (
-    <HashRouter basename={"/"}>
+    <BrowserRouter basename={"/"}>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path={"/"} element={<PrivateRoute />}>
@@ -49,7 +49,7 @@ const Routers = () => {
           ))}
         </Routes>
       </Suspense>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
