@@ -15,6 +15,7 @@ import { fetchAllActivities, fetchAllIncomeInfo, fetchLatestAnnouncement, fetchP
 import {useAccount} from 'wagmi';
 import MyContext from "../../../Context/MyContext";
 import { useContext } from "react";
+import {useNavigate} from 'react-router-dom';
 
 
 
@@ -22,6 +23,7 @@ import { useContext } from "react";
 
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [refferalIncome , setRefferalIncome] = useState();
   const [levelIncome , setLevelIncome] = useState();
   const [slotIncome , setSlotIncome] = useState();
@@ -689,7 +691,7 @@ console.log(process.env)
                             40 USD</span> */}
                         </div>
                         <div className="preview-button">
-                          <button>View</button>
+                          <button onClick={()=>{navigate('/app/ecommerce/cart/Dubai')}}>View</button>
                         </div>
                       </div>
                     </div>
@@ -766,7 +768,7 @@ console.log(process.env)
                       </div>
                       <div className="empty-right-div-box-2">
                         <div className="preview-button-right-box ">
-                          <button>View</button>
+                          <button onClick={()=>{navigate('/app/ecommerce/cart/Dubai')}}>View</button>
                         </div>
                       </div>
                     </div>
